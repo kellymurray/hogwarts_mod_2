@@ -12,24 +12,14 @@ RSpec.describe "Index" do
 
   end
 
-  it 'can show a list of professors along with their name, age, and specialty' do
-    visit '/professors'
+  it 'lists all students with the number of professors they have' do
+    visit '/students'
 
-    expect(page).to have_content(@snape.name)
-    expect(page).to have_content(@snape.age)
-    expect(page).to have_content(@snape.specialty)
+    expect(page).to have_content(@harry.name)
+    expect(page).to have_content(@harry.professor_count)
 
-    expect(page).to have_content(@hagarid.name)
-    expect(page).to have_content(@hagarid.age)
-    expect(page).to have_content(@hagarid.specialty)
-
-    expect(page).to have_content(@lupin.name)
-    expect(page).to have_content(@lupin.age)
-    expect(page).to have_content(@lupin.specialty)
-
+    expect(page).to have_content(@malfoy.name)
+    expect(page).to have_content(@malfoy.professor_count)
   end
-
-
-
 
 end
