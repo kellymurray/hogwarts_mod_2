@@ -1,0 +1,135 @@
+  [1m[35m (154.6ms)[0m  [1m[35mCREATE DATABASE "hogwarts_again_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (35.1ms)[0m  [1m[35mCREATE DATABASE "hogwarts_again_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5251273579037086230)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateProfessors (20200327014819)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "professors" ("id" bigserial primary key, "name" character varying, "age" integer, "specialty" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200327014819_create_professors.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200327014819"]]
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateStudents (20200327014949)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "name" character varying, "age" integer, "house" character varying)[0m
+  ↳ db/migrate/20200327014949_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200327014949"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateProfessorStudents (20200327015102)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "professor_students" ("id" bigserial primary key, "professor_id" bigint, "student_id" bigint, CONSTRAINT "fk_rails_2f296854ce"
+FOREIGN KEY ("professor_id")
+  REFERENCES "professors" ("id")
+, CONSTRAINT "fk_rails_60f1e55ae3"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+)[0m
+  ↳ db/migrate/20200327015102_create_professor_students.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_professor_students_on_professor_id" ON "professor_students"  ("professor_id")[0m
+  ↳ db/migrate/20200327015102_create_professor_students.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_professor_students_on_student_id" ON "professor_students"  ("student_id")[0m
+  ↳ db/migrate/20200327015102_create_professor_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200327015102"]]
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (2.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-14 13:51:41.467748"], ["updated_at", "2021-09-14 13:51:41.467748"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5251273579037086230)[0m
+  ↳ bin/rails:4
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mProfessor Create (0.4ms)[0m  [1m[32mINSERT INTO "professors" ("name", "age", "specialty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Severus Snape"], ["age", 45], ["specialty", "Potions"], ["created_at", "2021-09-14 13:51:41.518073"], ["updated_at", "2021-09-14 13:51:41.518073"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mProfessor Create (0.1ms)[0m  [1m[32mINSERT INTO "professors" ("name", "age", "specialty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Rubeus Hagrid"], ["age", 38], ["specialty", "Care of Magical Creatures"], ["created_at", "2021-09-14 13:51:41.519122"], ["updated_at", "2021-09-14 13:51:41.519122"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mProfessor Create (0.1ms)[0m  [1m[32mINSERT INTO "professors" ("name", "age", "specialty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Remus Lupin"], ["age", 49], ["specialty", "Defense Against The Dark Arts"], ["created_at", "2021-09-14 13:51:41.519705"], ["updated_at", "2021-09-14 13:51:41.519705"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mStudent Create (0.3ms)[0m  [1m[32mINSERT INTO "students" ("name", "age", "house") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Harry Potter"], ["age", 11], ["house", "Gryffindor"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mStudent Create (0.1ms)[0m  [1m[32mINSERT INTO "students" ("name", "age", "house") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Draco Malfoy"], ["age", 12], ["house", "Slytherin"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mStudent Create (0.1ms)[0m  [1m[32mINSERT INTO "students" ("name", "age", "house") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Neville Longbottom"], ["age", 11], ["house", "Gryffindor"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mProfessorStudent Create (1.3ms)[0m  [1m[32mINSERT INTO "professor_students" ("professor_id", "student_id") VALUES ($1, $2) RETURNING "id"[0m  [["professor_id", 1], ["student_id", 1]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mProfessorStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "professor_students" ("professor_id", "student_id") VALUES ($1, $2) RETURNING "id"[0m  [["professor_id", 2], ["student_id", 1]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mProfessorStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "professor_students" ("professor_id", "student_id") VALUES ($1, $2) RETURNING "id"[0m  [["professor_id", 3], ["student_id", 1]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mProfessorStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "professor_students" ("professor_id", "student_id") VALUES ($1, $2) RETURNING "id"[0m  [["professor_id", 2], ["student_id", 2]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mProfessorStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "professor_students" ("professor_id", "student_id") VALUES ($1, $2) RETURNING "id"[0m  [["professor_id", 3], ["student_id", 2]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mProfessorStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "professor_students" ("professor_id", "student_id") VALUES ($1, $2) RETURNING "id"[0m  [["professor_id", 1], ["student_id", 3]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
