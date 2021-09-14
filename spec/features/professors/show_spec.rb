@@ -25,4 +25,12 @@ RSpec.describe 'As A Visitor' do
       expect(page).to have_content(@longbottom.name)
     end
   end
+
+  describe 'When I Visit the Professors Show Page It Shows the Average Age of All Professors Students' do
+    it 'shows the average age of all students that professor has' do
+      visit "/professors/#{@snape.id}"
+      expect(page).to have_content(11)
+    end
+  end
+
 end

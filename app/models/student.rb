@@ -5,7 +5,11 @@ class Student <ApplicationRecord
 
 
   def professor_count
-    professors.count
+      professors.count
+  end
+
+  def self.average_student_age
+      average(:age)
   end
 
 end

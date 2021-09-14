@@ -6,6 +6,10 @@ RSpec.describe "Index" do
     @hagarid = Professor.create(name: "Rubeus Hagrid", age: 38 , specialty: "Care of Magical Creatures")
     @lupin = Professor.create(name: "Remus Lupin", age: 49 , specialty: "Defense Against The Dark Arts")
 
+    @harry = Student.create!(name: "Harry Potter" , age: 11 , house: "Gryffindor" )
+    @malfoy = Student.create!(name: "Draco Malfoy" , age: 12 , house: "Slytherin" )
+    @longbottom = Student.create!(name: "Neville Longbottom" , age: 11 , house: "Gryffindor" )
+
   end
 
   it 'can show a list of professors along with their name, age, and specialty' do
@@ -29,10 +33,10 @@ RSpec.describe "Index" do
     visit '/students'
 
     expect(page).to have_content(@harry.name)
-    expect(page).to have_content(@harry.professors.count)
+    expect(page).to have_content(@harry.professor_count)
 
     expect(page).to have_content(@malfoy.name)
-    expect(page).to have_content(@malfoy.professors.count)
+    expect(page).to have_content(@malfoy.professor_count)
   end
 
 
