@@ -22,4 +22,12 @@ RSpec.describe "Index" do
     expect(page).to have_content(@malfoy.professor_count)
   end
 
+  it 'lists students in alphabetical order' do
+     visit '/students'
+
+     expect(@malfoy.name).to appear_before(@harry.name)
+     expect(@harry.name).to appear_before(@longbottom.name)
+   end
+
+
 end

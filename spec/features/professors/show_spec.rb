@@ -26,10 +26,10 @@ RSpec.describe 'As A Visitor' do
     end
   end
 
-  describe 'When I Visit a Singular Professors Show Page' do
+  describe 'When I Visit a Professors Show Page' do
     it 'I see the average age of all students for that professor' do
       visit "/professors/#{@lupin.id}"
-
+      
       expect(page).to have_content(11.5)
     end
   end

@@ -12,6 +12,4 @@ RSpec.describe Professor, type: :model do
     it {should have_many(:students).through(:professor_students)}
   end
 
-
-
 end
