@@ -3,8 +3,3 @@ class Professor <ApplicationRecord
   has_many :students, through: :professor_students
   validates :name, :age, :specialty, presence: true
 end
-
-
-# def order_students
-#   students.order(:name)
-# end

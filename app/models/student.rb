@@ -12,4 +12,5 @@ class Student <ApplicationRecord
       average(:age)
   end
 
+
 end

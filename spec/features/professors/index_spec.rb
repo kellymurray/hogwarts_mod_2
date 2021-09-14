@@ -29,7 +29,12 @@ RSpec.describe "Index" do
 
   end
 
+  it 'lists professors in alphabetical order' do
+     visit '/professors'
 
+     expect(@lupin.name).to appear_before(@hagarid.name)
+     expect(@hagarid.name).to appear_before(@snape.name)
+   end
 
 
 end

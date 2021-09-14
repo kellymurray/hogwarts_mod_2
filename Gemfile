@@ -19,6 +19,7 @@ gem 'bootsnap'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'orderly'
   gem 'launchy'
   gem 'pry'
   gem 'shoulda-matchers', '~> 3.1'
