@@ -24,4 +24,16 @@ RSpec.describe "Index" do
     expect(page).to have_content(@lupin.specialty)
 
   end
+
+  it 'lists all students with the number of professors they have' do
+    visit '/students'
+
+    expect(page).to have_content(@harry.name)
+    expect(page).to have_content(@harry.professors.count)
+
+    expect(page).to have_content(@malfoy.name)
+    expect(page).to have_content(@malfoy.professors.count)
+  end
+
+
 end
